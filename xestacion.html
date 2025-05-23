@@ -90,6 +90,17 @@
     width: 330;
     height: 600px;
   }
+
+  .timeline::before {
+  content: '';
+  position: absolute;
+  top: calc(20px + 40px); /* mitad del primer marker (20px) + offset */
+  bottom: calc(20px + 150px) !important; /* mitad del último marker */
+  left: 30px;
+  width: 4px;
+  background: linear-gradient(224deg, #315c42, #2f4e3b);
+  z-index: 0;
+}
 }
 
 @media screen and (min-width: 768px) {
@@ -140,56 +151,22 @@
         border: none !important;
     }
     .card {
+      border-radius: 25px;
       /* border: none; */
         background: linear-gradient(178deg, #315f43, #2f4d3b) !important;
 
     }
 
-    .timeline-content {
-      border: none;
-            background: linear-gradient(272deg, #315f43, #2f4d3b) !important;
-      position: relative;
-      left: 50%;
-      transform: translateX(20px);
-      width: 45%;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      background: white;
+    .card-transparent {
+      border: 1px solid #c0dac6;
+      /* background: transparent !important; */
+      border-radius: 25px;
+      background: linear-gradient(178deg, #689f7b, #96bfa3) !important;
+      /* border: none; */
+        /* background: linear-gradient(178deg, #315f43, #2f4d3b) !important; */
+
     }
 
-    @media (max-width: 768px) {
-      .timeline::before {
-        left: 20px;
-        transform: none;
-      }
-
-      .timeline-marker {
-        left: 20px;
-        transform: translateX(-50%);
-      }
-
-      .timeline-content {
-        width: calc(100% - 60px);
-        left: 60px;
-        transform: none;
-      }
-    }
-
-    .timeline-marker.completed {
-  background-color: green;
-  color: white;
-}
-
-.timeline-marker.completed::after {
-  content: "✔";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #c0dac6;
-  font-size: 15px;
-  transform: translate(-50%, -50%);
-}
 
     .no-styles {
         background: transparent !important;
@@ -212,128 +189,170 @@
     background-image: none;
     content: "-";
 }
+
+a{
+  text-decoration: none;
+}
+
+.timeline {
+  position: relative;
+  padding: 30px 0;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* separa los ítems */
+}
+
+.timeline-item {
+  position: relative;
+}
+
+/* Línea entre el primer y último marcador */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: calc(20px + 40px); /* mitad del primer marker (20px) + offset */
+  bottom: calc(20px + 115px); /* mitad del último marker */
+  left: 30px;
+  width: 4px;
+  background: linear-gradient(224deg, #315c42, #2f4e3b);
+  z-index: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  transform: translate(-50%, 0);
+  width: 20px;
+  height: 20px;
+  background-color: #2f503c;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-content {
+  border: none;
+  position: relative;
+  left: 80px;
+  width: calc(100% - 100px);
+  padding: 15px;
+  border-radius: 8px;
+  background: linear-gradient(272deg, #315f43, #2f4d3b) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-marker.completed::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #c0dac6;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+}
+
+.text-nav {
+  color: #ffffff; /* color inicial */
+  transition: color 0.4s ease; /* transición suave */
+}
+
+.text-nav:hover {
+  color: #c0dac6; /* color al hacer hover */
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); /* Opcional: bordes blancos */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:focus {
+    /* text-decoration: none; */
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(178deg, #315f43, #2f4d3b);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fullscreen-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.close-button {
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+
   </style>
 </head>
 <body>
   <main class="container py-5">
-    <div class="row">
-      <div class="col-12 mb-5 text-left">
-        <a href="index.html">
+    
+
+    
+    <div id="fullscreenMenu" class="fullscreen-menu">
+      <button id="closeMenu" class="close-button">&times;</button>
+      <ul class="nav flex-column text-center mt-5">
+        <li class="nav-item"><a class="nav-link text-white fs-4" href="#">Próximos eventos</a></li>
+        <li class="nav-item"><a class="nav-link text-white fs-4" href="#">Espejo Oesed</a></li>
+      </ul>
+    </div>
+    
+
+    <nav class="navbar navbar-expand-md mb-5">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
           <img src="img/logo2.png" alt="Logo" style="height: 25px;" />
         </a>
+        <button class="navbar-toggler" type="button" id="openMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Próximos eventos</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Espejo Oesed</a></li>
+          </ul>
+        </div>
+        
+    
       </div>
-      <div class="col-md-12">
-        <h2>XESTACIÓN</h2>
+    </nav>
+    <div class="row">
+      <div class="col-12">
+        <h1>XESTACIÓN</h1>
       </div>
       <div class="col-12 size-17">
         <p>9 meses. 10 personas. Una nueva forma de vivir.</p>
       </div>
-      <!-- <div class="col-md-12">
-        <div class="timeline">
-    
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content card mb-3">
-                <div class="card-body">
-                  <p class="card-text">Has probado cosas. Terapias. Libros. Cursos.</p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content card bg-white mb-3">
-                <div class="card-body">
-                  <p class="card-text">Y sí, algo cambió… pero no lo suficiente.</p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content card mb-3">
-                <div class="card-body">
-                  <p class="card-text">Todavía hay algo dentro que pesa. Una tristeza que no entiendes. Un cansancio que no es solo físico. Un vacío que no se llena ni con amor, ni con logros, ni con likes.</p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content card bg-white mb-3">
-                <div class="card-body">
-                  <p class="card-text">Lo sabes. Y lo que duele no es no haberlo resuelto.<br>Es seguir haciendo como que no pasa nada.</p>
-                </div>
-              </div>
-            </div>
-        </div> -->
-        <!-- <div class="col-8 mx-auto mt-5"> -->
-            <!-- <div class="card"> -->
-                <!-- <div class="card-body px-5"> -->
-                    <!-- <h5>
-                        Has probado cosas.
-                    <h5> -->
-                        <!-- <div class="timeline">
-    
-                            <div class="timeline-item">
-                              <div class="timeline-marker"></div>
-                              <div class="timeline-content card mb-3">
-                                <div class="card-body">
-                                  <p class="card-text">Terapias</p>
-                                </div>
-                              </div>
-                            </div>
-                        
-                            <div class="timeline-item">
-                              <div class="timeline-marker"></div>
-                              <div class="timeline-content card bg-white mb-3">
-                                <div class="card-body">
-                                  <p class="card-text"> Libros</p>
-                                </div>
-                              </div>
-                            </div>
-                        
-                            <div class="timeline-item">
-                              <div class="timeline-marker"></div>
-                              <div class="timeline-content card mb-3">
-                                <div class="card-body">
-                                  <p class="card-text">Cursos</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content card mb-3">
-                                  <div class="card-body">
-                                    <p class="card-text">Y sí, algo cambió… pero no lo suficiente.</p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content card mb-3">
-                                  <div class="card-body">
-                                    <p class="card-text">Todavía hay algo dentro que pesa. Una tristeza que no entiendes. Un cansancio que no es solo físico. Un vacío que no se llena ni con amor, ni con logros, ni con likes.                                    </p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content card mb-3">
-                                  <div class="card-body">
-                                    <p class="card-text">Lo sabes. Y lo que duele no es no haberlo resuelto.<br>
-                                        Es seguir haciendo como que no pasa nada.</p>
-                                  </div>
-                                </div>
-                            </div>
-                        </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
-            <!-- <h3>XESTACIÓN no es una terapia más.</h3>
-            <small>Es un proceso de renacimiento consciente para personas que están listas. <br>
-                No al síntoma, sino a la raíz.</small> -->
-        <!-- </div> -->
-        <div class="col-10 col-sm-6 mx-auto mt-5">
+        <div class="col-11 col-sm-6 mx-auto mt-5">
             <div class="card py-4 px-4">
                 <div class="body-card">
                     <p>
@@ -395,29 +414,25 @@
                       </div>
                     </div>
                 </div>
+                <div class="timeline-item">
+                  <div class="timeline-marker" style="background: #2f543e;"></div>
+                  <div class="timeline-content card mb-3">
+                    <div class="card-body">
+                      <p class="card-text">Todo eso que tu cabeza intenta explicar… <br> pero tu cuerpo ya no puede sostener</p>
+                    </div>
+                  </div>
+              </div>
             </div>
         </div>
 
-        <!-- <div class="col-6 mx-auto mt-5">
-            <div class="card py-4 px-4 text-left">
-                <div class="card-body text-left">
-                    <h3>Esto es lo que vas a trabajar:</h3>
-                    <li>Las emociones que tragaste de niño y hoy te ahogan por dentro.</li>
-                    <li>Las creencias que heredaste de mamá y papá sin darte cuenta.</li>
-                    <li>El miedo a sentir, el miedo a soltar, el miedo a ser tú.</li>
-                    <li>El patrón que repites en relaciones, dinero, salud y no sabes cómo romper.</li>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="col-12 mt-5">
+        <!-- <div class="col-12 mt-5">
             <p class="size-17">
                 Todo eso que tu cabeza intenta explicar… <br>
 pero tu cuerpo ya no puede sostener.
             </p>
-        </div>
+        </div> -->
 
-        <div class="col-10 col-sm-8 mx-auto mt-5">
+        <div class="col-11 col-sm-8 mx-auto mt-5">
             <div class="card no-border">
                 <div class="card-body">
                     <div class="accordion no-styles" id="accordionExample">
@@ -501,10 +516,14 @@ pero tu cuerpo ya no puede sostener.
             </div>
         </div>
 
-        <div class="col-12 mt-5">
-            <p class="size-17">
-                ⚠️Importante
-            </p>
+        <div class="mt-5 mx-auto">
+          <div class="card-transparent mb-3" style="width: fit-content; margin: 0 auto; ">
+            <div class="card-body" style="padding: 10px;">
+              <p class="size-17 mb-0" style="color: #22362A;">
+                  Importante
+              </p>
+            </div>
+          </div>
             <p>
                 Solo 10 personas entrarán en XESTACIÓN este año.<br>
                 No hay plazas extra. No se puede comprar si no encajamos.<br>
@@ -536,90 +555,6 @@ pero tu cuerpo ya no puede sostener.
 </html>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  
-//   const elemento = document.getElementById('puntoUno');
-//     console.log(elemento)
-// const posicion = elemento.getBoundingClientRect();
-
-// console.log('Top:', posicion.top);
-// // console.log('Left:', posicion.left);
-// const el = document.getElementById('puntoUno');
-//   window.addEventListener('scroll', () => {
-// const rect = el.getBoundingClientRect();
-// const centerOfElement = rect.left + rect.width / 2;
-// const centerOfViewport = window.innerWidth / 2;
-
-// console.log('Centro del elemento:', centerOfElement);
-// console.log('Centro de la pantalla:', centerOfViewport);
-
-// if (Math.abs(centerOfElement - centerOfViewport) < 5) {
-//   console.log('🎯 El elemento está centrado horizontalmente.');
-// } else {
-//   console.log('❌ El elemento NO está centrado. Desfase:', centerOfElement - centerOfViewport);
-// }
-
-  // console.log('Scroll vertical:', window.scrollY);
-// });
-
-
-// window.addEventListener('scroll', () => {
-//   const markers = document.querySelectorAll('.timeline-marker');
-//   const viewportCenter = window.innerHeight / 2;
-
-//   markers.forEach(marker => {
-//     const rect = marker.getBoundingClientRect();
-//     const markerCenter = rect.top + rect.height / 2;
-
-//     const distance = Math.abs(viewportCenter - markerCenter);
-
-//     if (distance < 10) { // margen de 10px
-//       console.log('Un punto está en el centro de la pantalla!');
-//     }
-//   });
-// });
-
-// function checkMarkersInCenter() {
-//   const markers = document.querySelectorAll('.timeline-marker');
-//   const centerY = window.innerHeight / 2;
-
-//   markers.forEach(marker => {
-//     const rect = marker.getBoundingClientRect();
-//     const markerCenterY = rect.top + rect.height / 2;
-
-//     // Rango de tolerancia, por ejemplo ±20 px del centro
-//     if (markerCenterY > centerY - 20 && markerCenterY < centerY + 20) {
-//       marker.classList.add('completed');
-//     } else {
-//       marker.classList.remove('completed');
-//     }
-//   });
-// }
-
-// // Ejecuta al hacer scroll y al cargar la página
-// window.addEventListener('scroll', checkMarkersInCenter);
-// window.addEventListener('load', checkMarkersInCenter);
-
-
-// function markPassedMarkers() {
-//   const markers = document.querySelectorAll('.timeline-marker');
-//   const centerY = window.innerHeight / 2;
-
-//   markers.forEach(marker => {
-//     const rect = marker.getBoundingClientRect();
-//     const markerCenterY = rect.top + rect.height / 2;
-
-//     // Si el centro del marker está *por encima* del centro de la pantalla,
-//     // significa que ya pasó el centro haciendo scroll hacia abajo
-//     if (markerCenterY < centerY) {
-//       marker.classList.add('completed');
-//     }
-//     // No removemos la clase en ningún caso, para que quede marcada
-//   });
-// }
-
-// // Ejecutar al hacer scroll y al cargar la página
-// window.addEventListener('scroll', markPassedMarkers);
-// window.addEventListener('load', markPassedMarkers);
 
 function updateMarkers() {
   const markers = document.querySelectorAll('.timeline-marker');
@@ -642,6 +577,16 @@ function updateMarkers() {
 window.addEventListener('scroll', updateMarkers);
 window.addEventListener('load', updateMarkers);
 
+const menu = document.getElementById('fullscreenMenu');
+  const openBtn = document.getElementById('openMenu');
+  const closeBtn = document.getElementById('closeMenu');
 
+  openBtn.addEventListener('click', () => {
+    menu.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    menu.classList.remove('show');
+  });
 });
 </script>
