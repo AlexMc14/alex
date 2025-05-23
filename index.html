@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/font.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/estilosTipo1.css" />
+  <style>
+    /* Añade esto directamente o colócalo en tu styles.css */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    main {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+
+
+    .buttons-home {
+      background: linear-gradient(146deg, #48815d, #315f438c);
+      color:white;
+      padding:40px 35px;
+      border: none;
+      border-radius: 11px;
+    }
+
+    .buttons-home:hover {
+  background: #48815d;
+  /* background-color: #6fb18b; */
+      color: #fff;
+      transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .video-home {
+    width: 90%;
+    height: 90%;
+  }
+
+  body {
+      height: auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  .video-home {
+    width: 85%;
+    height: 90%;
+    /* height: 640px; */
+  }
+  .place-content-end {
+      place-content: end;
+    }
+  body {
+      height: 100vh;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <main class="container py-5">
+    <div class="row">
+      <div class="col-12 mb-5">
+        <img src="img/logo2.png" alt="Logo" style="height: 50px;" />
+      </div>
+      <!-- <div class="col-12 col-md-6">
+        <iframe class="video-home"
+          src="https://www.youtube.com/embed/LXb3EKWsInQ" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div> -->
+      <div class="col-12 col-md-12">
+        <div class="row mx-auto">
+          <div class="col-7 mx-auto">
+            <button class="w-100 buttons-home">
+              Próximos eventos
+            </button>
+          </div>
+          <div class="col-7 mx-auto mt-3">
+            <a href="">
+              <button class="w-100 buttons-home">
+                La Sesión Espejo Oesed
+              </button>
+            </a>
+          </div>
+          <div class="col-7 mx-auto mt-3">
+            <a href="xestacion.html">
+              <button class="w-100 buttons-home">
+                Xestación
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+  <footer class="border-top py-3 px-3 mt-auto">
+    <div class="row d-flex flex-wrap justify-content-between align-items-center">
+      <div class="col-12 col-md-2 d-flex align-items-center mb-2 mb-md-0">
+        <img src="img/logo-blanco.png" alt="Logo" style="height: 20px;" class="me-2" />
+       
+      </div>
+      <!-- <div class="col-12 col-md-4"></div> -->
+      <ul class="nav col-12 col-md-10 text-right place-content-end">
+        <li class="nav-item"> <span class="nav-link px-2 text-white" style="opacity: 0.5;">© 2025 Edu Martínez</span></li>
+        <li class="nav-item"><a href="aviso-legal.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Aviso Legal</a></li>
+        <li class="nav-item"><a href="politica-privacidad.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Política de Privacidad</a></li>
+        <li class="nav-item"><a href="politica-cookies.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Política de Cookies</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

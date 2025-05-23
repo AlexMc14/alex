@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/font.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/estilosTipo1.css" />
+  <style>
+    /* Añade esto directamente o colócalo en tu styles.css */
+    /* html, body {
+      height: 100%;
+      margin: 0;
+    } */
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-x: hidden;
+      /* min-height: 100vh; */
+    }
+
+    p {
+        font-size:14px;
+        color: #c0dac6;
+    }
+
+    .text-faq {
+        font-size:14px;
+        color: #96bfa3;
+    }
+
+    small {
+        color: #c0dac6;
+    }
+
+    .size-17 {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    .size-15 {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    main {
+      flex: 1 0 auto;
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      justify-content: center;
+      text-align: center;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+
+    .buttons-home {
+      background: linear-gradient(146deg, #48815d, #315f438c);
+      color:white;
+      padding:40px 35px;
+      border: none;
+      border-radius: 11px;
+    }
+
+    .buttons-home:hover {
+  background: #48815d;
+  /* background-color: #6fb18b; */
+      color: #fff;
+      transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .video-home {
+    width: 330;
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .video-home {
+    width: 85%;
+    height: 90%;
+    /* height: 640px; */
+  }
+}
+.timeline {
+      position: relative;
+      padding: 30px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: linear-gradient(224deg, #315c42, #2f4e3b);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background-color: #2f503c;
+      border-radius: 50%;
+      /* border: 3px solid #fff; */
+      z-index: 1;
+    }
+    .no-border {
+        border: none !important;
+    }
+    .card {
+      /* border: none; */
+        background: linear-gradient(178deg, #315f43, #2f4d3b) !important;
+
+    }
+
+    .timeline-content {
+      border: none;
+            background: linear-gradient(272deg, #315f43, #2f4d3b) !important;
+      position: relative;
+      left: 50%;
+      transform: translateX(20px);
+      width: 45%;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 20px;
+        transform: none;
+      }
+
+      .timeline-marker {
+        left: 20px;
+        transform: translateX(-50%);
+      }
+
+      .timeline-content {
+        width: calc(100% - 60px);
+        left: 60px;
+        transform: none;
+      }
+    }
+
+    .timeline-marker.completed {
+  background-color: green;
+  color: white;
+}
+
+.timeline-marker.completed::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #c0dac6;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+}
+
+    .no-styles {
+        background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    }
+    .accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button::after {
+    content: "+";
+    color: #fff;
+    background: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+    content: "-";
+}
+  </style>
+</head>
+<body>
+  <main class="container py-5">
+    <div class="row">
+      <div class="col-12 mb-5 text-left">
+        <a href="index.html">
+          <img src="img/logo2.png" alt="Logo" style="height: 25px;" />
+        </a>
+      </div>
+      <div class="col-md-12">
+        <h2>XESTACIÓN</h2>
+      </div>
+      <div class="col-12 size-17">
+        <p>9 meses. 10 personas. Una nueva forma de vivir.</p>
+      </div>
+      <!-- <div class="col-md-12">
+        <div class="timeline">
+    
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content card mb-3">
+                <div class="card-body">
+                  <p class="card-text">Has probado cosas. Terapias. Libros. Cursos.</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content card bg-white mb-3">
+                <div class="card-body">
+                  <p class="card-text">Y sí, algo cambió… pero no lo suficiente.</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content card mb-3">
+                <div class="card-body">
+                  <p class="card-text">Todavía hay algo dentro que pesa. Una tristeza que no entiendes. Un cansancio que no es solo físico. Un vacío que no se llena ni con amor, ni con logros, ni con likes.</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content card bg-white mb-3">
+                <div class="card-body">
+                  <p class="card-text">Lo sabes. Y lo que duele no es no haberlo resuelto.<br>Es seguir haciendo como que no pasa nada.</p>
+                </div>
+              </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-8 mx-auto mt-5"> -->
+            <!-- <div class="card"> -->
+                <!-- <div class="card-body px-5"> -->
+                    <!-- <h5>
+                        Has probado cosas.
+                    <h5> -->
+                        <!-- <div class="timeline">
+    
+                            <div class="timeline-item">
+                              <div class="timeline-marker"></div>
+                              <div class="timeline-content card mb-3">
+                                <div class="card-body">
+                                  <p class="card-text">Terapias</p>
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <div class="timeline-item">
+                              <div class="timeline-marker"></div>
+                              <div class="timeline-content card bg-white mb-3">
+                                <div class="card-body">
+                                  <p class="card-text"> Libros</p>
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <div class="timeline-item">
+                              <div class="timeline-marker"></div>
+                              <div class="timeline-content card mb-3">
+                                <div class="card-body">
+                                  <p class="card-text">Cursos</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content card mb-3">
+                                  <div class="card-body">
+                                    <p class="card-text">Y sí, algo cambió… pero no lo suficiente.</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content card mb-3">
+                                  <div class="card-body">
+                                    <p class="card-text">Todavía hay algo dentro que pesa. Una tristeza que no entiendes. Un cansancio que no es solo físico. Un vacío que no se llena ni con amor, ni con logros, ni con likes.                                    </p>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content card mb-3">
+                                  <div class="card-body">
+                                    <p class="card-text">Lo sabes. Y lo que duele no es no haberlo resuelto.<br>
+                                        Es seguir haciendo como que no pasa nada.</p>
+                                  </div>
+                                </div>
+                            </div>
+                        </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+            <!-- <h3>XESTACIÓN no es una terapia más.</h3>
+            <small>Es un proceso de renacimiento consciente para personas que están listas. <br>
+                No al síntoma, sino a la raíz.</small> -->
+        <!-- </div> -->
+        <div class="col-10 col-sm-6 mx-auto mt-5">
+            <div class="card py-4 px-4">
+                <div class="body-card">
+                    <p>
+                        Has probado cosas. Terapias. Libros. Cursos. <br><br>
+        
+        Y sí, algo cambió… pero no lo suficiente. <br><br>
+        
+        Todavía hay algo dentro que pesa. Una tristeza que no entiendes. Un cansancio que no es solo físico. Un vacío que no se llena ni con amor, ni con logros, ni con likes.<br><br>
+        
+        Lo sabes. Y lo que duele no es no haberlo resuelto.<br>
+        Es seguir haciendo como que no pasa nada.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mx-auto mt-5">
+            <h3>XESTACIÓN no es una terapia más.</h3>
+            <small>Es un proceso de renacimiento consciente para personas que están listas. <br>
+                No al síntoma, sino a la raíz.</small>
+        </div>
+
+        <div class="col-12 mt-5">
+            <h2>
+                Esto es lo que vas a trabajar.
+            <h2>
+            <div class="timeline">
+    
+                <div class="timeline-item">
+                  <div id="puntoUno" class="timeline-marker" style="background-color:#305a41; "></div>
+                  <div class="timeline-content card mb-3">
+                    <div class="card-body">
+                      <p class="card-text">Las emociones que tragaste de niño y hoy te ahogan por dentro.</p>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="timeline-item">
+                  <div class="timeline-marker" style="background: #305840;"></div>
+                  <div class="timeline-content card bg-white mb-3">
+                    <div class="card-body">
+                      <p class="card-text"> Las creencias que heredaste de mamá y papá sin darte cuenta.</p>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="timeline-item">
+                  <div class="timeline-marker" style="background: #315740;"></div>
+                  <div class="timeline-content card mb-3">
+                    <div class="card-body">
+                      <p class="card-text">El miedo a sentir, el miedo a soltar, el miedo a ser tú.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: #2f543e;"></div>
+                    <div class="timeline-content card mb-3">
+                      <div class="card-body">
+                        <p class="card-text">El patrón que repites en relaciones, dinero, salud y no sabes cómo romper.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-6 mx-auto mt-5">
+            <div class="card py-4 px-4 text-left">
+                <div class="card-body text-left">
+                    <h3>Esto es lo que vas a trabajar:</h3>
+                    <li>Las emociones que tragaste de niño y hoy te ahogan por dentro.</li>
+                    <li>Las creencias que heredaste de mamá y papá sin darte cuenta.</li>
+                    <li>El miedo a sentir, el miedo a soltar, el miedo a ser tú.</li>
+                    <li>El patrón que repites en relaciones, dinero, salud y no sabes cómo romper.</li>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-12 mt-5">
+            <p class="size-17">
+                Todo eso que tu cabeza intenta explicar… <br>
+pero tu cuerpo ya no puede sostener.
+            </p>
+        </div>
+
+        <div class="col-10 col-sm-8 mx-auto mt-5">
+            <div class="card no-border">
+                <div class="card-body">
+                    <div class="accordion no-styles" id="accordionExample">
+                        <div class="accordion-item no-styles">
+                            <h2 class="accordion-header no-styles">
+                              <button class="accordion-button collapsed no-styles" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                  <h4 class="text-white">¿Qué es esto?</h4>
+                              </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse no-styles collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body no-styles">
+                                <p class="size-17 text-left text-faq">
+                                    Un proceso individual, exclusivo y transformador que solo vivirán 10 personas al año. <br><br>
+
+                                    9 meses de trabajo contigo mismo, acompañado de mi experiencia y mi mirada.<br><br>
+    
+                                    Lo llamo XESTACIÓN porque no es una terapia: es una gestación emocional.<br>
+                                    Un parto de ti. Sin anestesia, pero con propósito.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="accordion-item no-styles">
+                          <h2 class="accordion-header no-styles">
+                            <button class="accordion-button collapsed no-styles" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h4 class="text-white">¿Qué incluye?</h4>
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse no-styles collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body no-styles">
+                              <p class="size-17 text-left text-faq">
+                                Acompañamiento personal durante 9 meses (1 a 1).<br>
+                                Sesiones online o presenciales, según tu ubicación.<br>
+                                Diagnóstico emocional profundo: más allá de lo que tú ves.<br>
+                                Ejercicios, herramientas y rituales para desprogramar lo que ya no te sirve.<br>
+                                Soporte cercano. Real. Humano.<br>
+                                Acceso exclusivo a materiales diseñados solo para este proceso.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item no-styles">
+                          <h2 class="accordion-header no-styles">
+                            <button class="accordion-button no-styles collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h4 class="text-white">¿Para quién es esto?</h4>
+                            </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse no-styles collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body no-styles">
+                              <p class="size-17 text-left text-faq">
+                                Para personas que sienten que ya no quieren seguir igual. <br>
+                                Para quienes han hecho trabajo personal pero saben que falta algo.<br>
+                                Para quienes están cansadas de repetir la misma historia con distinta cara.<br>
+                                Para mujeres y hombres que están dispuestos a soltar el personaje y volver a casa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item no-styles">
+                            <h2 class="accordion-header no-styles">
+                              <button class="accordion-button no-styles collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                <h4 class="text-white">¿Por qué yo?</h4>
+                              </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse no-styles collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body no-styles">
+                                <p class=" size-17 text-left text-faq">
+                                    Porque yo también pasé por esto. Durante años, me aferré a mis razones, convencido de que el problema siempre estaba fuera. No quería ver, no quería pedir ayuda. Hasta que lo hice. Y ahí cambió todo.<br><br>
+
+                                    Porque llevo más de 10 años ayudando a otros a ver lo que no quieren (o no pueden) ver. Y cuando lo ven, su vida cambia.<br><br>
+
+                                    Porque en esta sesión vamos al grano.<br>
+                                    Porque después de dos horas conmigo, vas a ver con claridad lo que te está frenando y cómo salir de ahí.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mt-5">
+            <p class="size-17">
+                ⚠️Importante
+            </p>
+            <p>
+                Solo 10 personas entrarán en XESTACIÓN este año.<br>
+                No hay plazas extra. No se puede comprar si no encajamos.<br>
+                Esto no es para cualquiera. Es para quien está listo.
+            </p>
+        </div>
+
+    </div>
+    </div>
+  </div>
+    </div>
+  </main>
+  <footer class="border-top py-3 px-3 mt-auto">
+    <div class="row d-flex flex-wrap justify-content-between align-items-center">
+      <div class="col-2 d-flex align-items-center mb-2 mb-md-0">
+        <img src="img/logo-blanco.png" alt="Logo" style="height: 20px;" class="me-2" />
+       
+      </div>
+      <div class="col-4"></div>
+      <ul class="nav col-5">
+        <li class="nav-item"> <span class="nav-link px-2 text-white" style="opacity: 0.5;">© 2025 Edu Martínez</span></li>
+        <li class="nav-item"><a href="aviso-legal.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Aviso Legal</a></li>
+        <li class="nav-item"><a href="politica-privacidad.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Política de Privacidad</a></li>
+        <li class="nav-item"><a href="politica-cookies.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Política de Cookies</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  
+//   const elemento = document.getElementById('puntoUno');
+//     console.log(elemento)
+// const posicion = elemento.getBoundingClientRect();
+
+// console.log('Top:', posicion.top);
+// // console.log('Left:', posicion.left);
+// const el = document.getElementById('puntoUno');
+//   window.addEventListener('scroll', () => {
+// const rect = el.getBoundingClientRect();
+// const centerOfElement = rect.left + rect.width / 2;
+// const centerOfViewport = window.innerWidth / 2;
+
+// console.log('Centro del elemento:', centerOfElement);
+// console.log('Centro de la pantalla:', centerOfViewport);
+
+// if (Math.abs(centerOfElement - centerOfViewport) < 5) {
+//   console.log('🎯 El elemento está centrado horizontalmente.');
+// } else {
+//   console.log('❌ El elemento NO está centrado. Desfase:', centerOfElement - centerOfViewport);
+// }
+
+  // console.log('Scroll vertical:', window.scrollY);
+// });
+
+
+// window.addEventListener('scroll', () => {
+//   const markers = document.querySelectorAll('.timeline-marker');
+//   const viewportCenter = window.innerHeight / 2;
+
+//   markers.forEach(marker => {
+//     const rect = marker.getBoundingClientRect();
+//     const markerCenter = rect.top + rect.height / 2;
+
+//     const distance = Math.abs(viewportCenter - markerCenter);
+
+//     if (distance < 10) { // margen de 10px
+//       console.log('Un punto está en el centro de la pantalla!');
+//     }
+//   });
+// });
+
+// function checkMarkersInCenter() {
+//   const markers = document.querySelectorAll('.timeline-marker');
+//   const centerY = window.innerHeight / 2;
+
+//   markers.forEach(marker => {
+//     const rect = marker.getBoundingClientRect();
+//     const markerCenterY = rect.top + rect.height / 2;
+
+//     // Rango de tolerancia, por ejemplo ±20 px del centro
+//     if (markerCenterY > centerY - 20 && markerCenterY < centerY + 20) {
+//       marker.classList.add('completed');
+//     } else {
+//       marker.classList.remove('completed');
+//     }
+//   });
+// }
+
+// // Ejecuta al hacer scroll y al cargar la página
+// window.addEventListener('scroll', checkMarkersInCenter);
+// window.addEventListener('load', checkMarkersInCenter);
+
+
+// function markPassedMarkers() {
+//   const markers = document.querySelectorAll('.timeline-marker');
+//   const centerY = window.innerHeight / 2;
+
+//   markers.forEach(marker => {
+//     const rect = marker.getBoundingClientRect();
+//     const markerCenterY = rect.top + rect.height / 2;
+
+//     // Si el centro del marker está *por encima* del centro de la pantalla,
+//     // significa que ya pasó el centro haciendo scroll hacia abajo
+//     if (markerCenterY < centerY) {
+//       marker.classList.add('completed');
+//     }
+//     // No removemos la clase en ningún caso, para que quede marcada
+//   });
+// }
+
+// // Ejecutar al hacer scroll y al cargar la página
+// window.addEventListener('scroll', markPassedMarkers);
+// window.addEventListener('load', markPassedMarkers);
+
+function updateMarkers() {
+  const markers = document.querySelectorAll('.timeline-marker');
+  const centerY = window.innerHeight / 2;
+
+  markers.forEach(marker => {
+    const rect = marker.getBoundingClientRect();
+    const markerCenterY = rect.top + rect.height / 2;
+
+    if (markerCenterY < centerY) {
+      // Marcador pasó el centro hacia abajo — añadir check
+      marker.classList.add('completed');
+    } else {
+      // Marcador está arriba del centro — quitar check
+      marker.classList.remove('completed');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateMarkers);
+window.addEventListener('load', updateMarkers);
+
+
+});
+</script>

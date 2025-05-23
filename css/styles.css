@@ -1,0 +1,26 @@
+/* Fuentes principales */
+h1, h2, h3, h4, h5, h6, .titulo {
+    font-family: 'Calendas Plus', serif;
+  }
+  
+  p, .cuerpo, .detalles {
+    font-family: 'Satoshi Variable', sans-serif;
+    font-weight: 400; /* regular */
+    font-size: 20px;
+  }
+  
+  .subtitulo {
+    font-family: 'Calendas Plus', serif;
+    font-size: 28px;
+  }
+  
+  h1.titulo, .titulo-principal {
+    font-size: 52px;
+  }
+  
+  .boton {
+    font-family: 'Satoshi Variable', sans-serif;
+    font-weight: 500; /* medium */
+    font-size: 18px;
+  }
+  
