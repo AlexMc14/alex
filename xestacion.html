@@ -66,6 +66,10 @@
       flex-shrink: 0;
     }
 
+    .text-right {
+      text-align: right;
+    }
+
     .buttons-home {
       background: linear-gradient(146deg, #48815d, #315f438c);
       color:white;
@@ -94,6 +98,10 @@
     height: 90%;
     /* height: 640px; */
   }
+
+  .place-content-end {
+      place-content: end;
+    }
 }
 .timeline {
       position: relative;
@@ -511,12 +519,12 @@ pero tu cuerpo ya no puede sostener.
   </main>
   <footer class="border-top py-3 px-3 mt-auto">
     <div class="row d-flex flex-wrap justify-content-between align-items-center">
-      <div class="col-2 d-flex align-items-center mb-2 mb-md-0">
+      <div class="col-12 col-md-2 d-flex align-items-center mb-2 mb-md-0">
         <img src="img/logo-blanco.png" alt="Logo" style="height: 20px;" class="me-2" />
        
       </div>
-      <div class="col-4"></div>
-      <ul class="nav col-5">
+      <!-- <div class="col-12 col-md-4"></div> -->
+      <ul class="nav col-12 col-md-10 text-right place-content-end">
         <li class="nav-item"> <span class="nav-link px-2 text-white" style="opacity: 0.5;">© 2025 Edu Martínez</span></li>
         <li class="nav-item"><a href="aviso-legal.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Aviso Legal</a></li>
         <li class="nav-item"><a href="politica-privacidad.html" class="nav-link px-2 text-white" style="opacity: 0.5;">Política de Privacidad</a></li>
